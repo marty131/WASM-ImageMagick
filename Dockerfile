@@ -1,4 +1,5 @@
 RUN apt-get update
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
 FROM trzeci/emscripten:sdk-tag-1.38.12-64bit
 
 #use latest due to jessie being retired
