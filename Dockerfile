@@ -7,12 +7,11 @@ FROM trzeci/emscripten
 RUN apt-get update
 RUN apt-get install -y gnupg2
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
-RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main"
+RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
 RUN sed -i '/deb http:\/\/http.debian.net\/debian jessie-backports main/d' /etc/apt/sources.list
 RUN cat /etc/apt/sources.list
 RUN cat /etc/apt/sources.list.d/jessie-backports.list
 RUN apt-get -o Acquire::Check-Valid-Until=false update
-
 
 
 RUN apt-get update -y
